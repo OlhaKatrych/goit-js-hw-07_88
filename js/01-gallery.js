@@ -7,7 +7,7 @@ function createMarkup(arr){
 
     return arr.map(({preview, original, description}) => `<li class = "gallery__item">
 
-    <a href="${preview}">
+    <a href="${preview}" class = "gallery__link">
     <img src="${original}" alt="${description}" class = "gallery__image">
    </a>
     </li>`).join('')
@@ -15,4 +15,6 @@ function createMarkup(arr){
 
 list.insertAdjacentHTML('beforeend', createMarkup(galleryItems))
 
-createMarkup(galleryItems)
+
+
+
