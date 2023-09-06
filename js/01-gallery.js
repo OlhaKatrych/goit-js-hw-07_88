@@ -1,20 +1,39 @@
-import { galleryItems } from './gallery-items.js';
+import { galleryItems } from "./gallery-items.js";
 // Change code below this line
 
-const list = document.querySelector('.gallery')
+const list = document.querySelector(".gallery");
 
-function createMarkup(arr){
+function createMarkup(arr) {
+  return arr
+    .map(
+      ({ preview, original, description }) => `<li class = "gallery__item">
 
-    return arr.map(({preview, original, description}) => `<li class = "gallery__item">
-
-    <a href="${preview}" class = "gallery__link">
-    <img src="${original}" alt="${description}" class = "gallery__image">
+    <a class = "gallery__link" href="${original}">
+    <img class = "gallery__image" src="${preview}" data-source = "${original}" alt="${description}">
    </a>
-    </li>`).join('')
+    </li>`
+    )
+    .join("");
 }
 
-list.insertAdjacentHTML('beforeend', createMarkup(galleryItems))
+list.insertAdjacentHTML("beforeend", createMarkup(galleryItems));
 
+list.addEventListener("click", handlerClick);
 
+function handlerClick(evt) {
+  evt.preventDefault();
 
+  if (evt.target === evt.currentTarget) {
+    return;
+  }
 
+  const imageLarge = evt.target.dataset.source;
+
+  const instance = basicLightbox.create(`
+    
+    <img src="${imageLarge}">
+  
+`);
+
+  instance.show();
+}
