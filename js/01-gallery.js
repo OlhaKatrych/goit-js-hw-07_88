@@ -21,14 +21,14 @@ list.insertAdjacentHTML("beforeend", createMarkup(galleryItems));
 list.addEventListener("click", handlerClick);
 
 function handlerClick(evt) {
-  evt.preventDefault();
+  evt.preventDefault()
 
-  if (evt.target === evt.currentTarget) {
+  if(evt.target === evt.currentTarget){
     return;
   }
-
+  
+  
   const imageLarge = evt.target.dataset.source;
-
   const instance = basicLightbox.create(`
     
     <img src="${imageLarge}">
@@ -36,4 +36,5 @@ function handlerClick(evt) {
 `);
 
   instance.show();
+
 }
