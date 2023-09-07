@@ -17,3 +17,9 @@ function createMarkup(arr) {
 }
 
 list.insertAdjacentHTML("beforeend", createMarkup(galleryItems));
+
+const lightbox = new SimpleLightbox('.gallery a',
+ { 
+    captionsData: 'alt',
+    captionDelay: 250
+});
