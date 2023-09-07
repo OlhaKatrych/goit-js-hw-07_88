@@ -22,11 +22,10 @@ list.addEventListener("click", handlerClick);
 
 function handlerClick(evt) {
   evt.preventDefault()
-
-  if(evt.target === evt.currentTarget){
-    return;
-  }
   
+  if(!evt.target.classList.contains('gallery__image')){
+   return
+    }
   
   const imageLarge = evt.target.dataset.source;
   const instance = basicLightbox.create(`
