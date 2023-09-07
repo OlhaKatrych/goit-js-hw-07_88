@@ -24,7 +24,9 @@ function handlerClick(evt) {
   evt.preventDefault()
   
   if(!evt.target.classList.contains('gallery__image')){
-   return
+
+   return;
+   
     }
   
   const imageLarge = evt.target.dataset.source;
